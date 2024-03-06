@@ -2,12 +2,12 @@
 /////////////Costanti///////////
 ////////////////////////////////
 
-const ImgWrapper = document.querySelector('.my-carousel-container');
+const imgWrapper = document.querySelector('.my-carousel-container');
 const left = document.querySelector('.my-previous');
 const right = document.querySelector('.my-next');
 const listImg = document.querySelector('.my-thumbnails');
-
-
+let counterImg = 0;
+let autoScroll;
 
 const images = [
     {
@@ -39,3 +39,11 @@ const images = [
     },
 ];
 
+// Ciclo immagine
+for (let i = 0; i < images.length; i++) {
+    const img = images[i];
+    imgWrapper.innerHTML += `<img class="img hide" src="${img}">`;
+  }
+
+  const itemsCollection = document.getElementsByClassName("img");
+  itemsCollection[counterImg].classList.remove("hide");
