@@ -61,13 +61,34 @@ images.forEach(img =>{
 const allImg = document.querySelectorAll('.my-carousel-item');
 allImg[0].classList.add('active');
 
+const allThb = document.querySelectorAll('.my-thumbnail');
+allThb[0].classList.add('active');
+
 right.addEventListener('click', function(){
-    allImg[0].classList.remove('active');
+    allImg[counterImg].classList.remove('active');
+    allThb[counterImg].classList.remove('active');
     counterImg++;
+    if (counterImg >= allImg.length) {
+        counterImg = 0;  
+    };
+    allImg[counterImg].classList.add('active');
+    allThb[counterImg].classList.add('active');
+
 }
 )
 
-// left.addEventListener('click', function(){
-    
-// }
-// )
+left.addEventListener('click', function(){
+    allImg[counterImg].classList.remove('active');
+    allThb[counterImg].classList.remove('active');
+    counterImg--;
+    if (counterImg < 0) {
+        counterImg = allImg.length - 1;
+    }
+    allImg[counterImg].classList.add('active');
+    allThb[counterImg].classList.add('active');
+}
+)
+
+///////////////
+///Funzioni////
+///////////////
