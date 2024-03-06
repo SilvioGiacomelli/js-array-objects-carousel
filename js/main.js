@@ -6,6 +6,7 @@ const imgWrapper = document.querySelector('.my-carousel-images');
 const left = document.querySelector('.my-previous');
 const right = document.querySelector('.my-next');
 const listImg = document.querySelector('.my-thumbnails');
+let counterImg = 0;
 
 
 const images = [
@@ -14,13 +15,11 @@ const images = [
         title: 'Svezia',
         description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
     },
-
     {
         url: 'https://static1.evcdn.net/images/reduction/1513757_w-1920_h-1080_q-70_m-crop.jpg',
         title: 'Perù',
         description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
     },
-
     {
         url: 'https://img.itinari.com/pages/images/original/0d3ed180-d22d-48e8-84df-19c4d888b41f-62-crop.jpg?ch=DPR&dpr=2.625&w=1600&s=7ebd4b5a9e045f41b4e0c7c75d298d6c',
         title: 'Chile',
@@ -41,7 +40,7 @@ const images = [
 images.forEach(img =>{
     imgWrapper.innerHTML +=
     `
-    <div class="my-carousel-item active">
+    <div class="my-carousel-item">
         <img class="img-fluid" src="${img.url}" alt="">
         <div class="item-description px-3">
             <h2>${img.title}</h2>
@@ -49,10 +48,26 @@ images.forEach(img =>{
         </div>
     </div>
     `;
+
     listImg.innerHTML += 
+
     `
-    <div class="my-thumbnail active">
+    <div class="my-thumbnail">
          <img class="img-fluid" src="${img.url}" alt="">
     </div>
     `
 })
+
+const allImg = document.querySelectorAll('.my-carousel-item');
+allImg[0].classList.add('active');
+
+right.addEventListener('click', function(){
+    allImg[0].classList.remove('active');
+    counterImg++;
+}
+)
+
+// left.addEventListener('click', function(){
+    
+// }
+// )
